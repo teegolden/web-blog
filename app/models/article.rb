@@ -98,6 +98,9 @@ class Article < Content
     self.body = self.body + "\n\n" + article2.body
     self.comments << article2.comments
     self.save
+    article2= Article.find_by_id article_id
+    article2.destroy 
+   
   end
 
   include Article::States
