@@ -29,6 +29,7 @@ class Admin::ContentController < Admin::BaseController
 
   def edit
     @article = Article.find(params[:id])
+    @current_user_is_admin = Profile.find(current_user.profile_id).label == "admin"
     unless @article.access_by? current_user
       redirect_to :action => 'index'
       flash[:error] = _("Error, you are not allowed to perform this action")
@@ -61,14 +62,14 @@ class Admin::ContentController < Admin::BaseController
     render :partial => "#{editor}_editor"
   end
 
-  def merge_article
+  def merge_with
     @article = Article.find(params[:id])
     unless Profile.find(current_user.profile_id).label == "admin"
       flash[:error] = _("Error, you are not allowed to perform this action")
       redirect_to :action => :index
     end
     if @article
-      if @article.merge_with(params[:article_id])
+      if @article.merge_with(params[:merge_with])
         flash[:notice] = "Merge successful!"
         redirect_to :action => :index
       else
