@@ -61,7 +61,7 @@ class Admin::ContentController < Admin::BaseController
     render :partial => "#{editor}_editor"
   end
 
-  def merge_with
+  def merge_article
     @article = Article.find(params[:id])
     unless Profile.find(current_user.profile_id).label == "admin"
       flash[:error] = _("Error, you are not allowed to perform this action")

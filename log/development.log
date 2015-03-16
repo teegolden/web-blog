@@ -18114,3 +18114,314 @@ Rendered admin/dashboard/_posts.html.erb (48.2ms)
 Rendered admin/dashboard/_typo_dev.html.erb (1.3ms)
 Rendered admin/dashboard/index.html.erb within layouts/administration (66.6ms)
 Completed 200 OK in 226914ms (Views: 81.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/admin/content" for 127.0.0.1 at 2015-03-15 18:22:19 -0700
+  Processing by Admin::ContentController#index as HTML
+  [1m[35mTrigger Load (0.1ms)[0m  SELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:20.201400')
+  [1m[36mBlog Load (0.1ms)[0m  [1mSELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name ASC
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT published_at AS publication FROM contents WHERE published_at is not NULL AND type='Article'
+  [1m[36mArticle Load (1.0ms)[0m  [1mSELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND (state <> 'draft') ORDER BY published_at DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))[0m
+  [1m[35mRedirect Load (0.3ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 3)) ORDER BY name ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND "feedback"."state" IN ('presumed_ham', 'ham') AND ("feedback".article_id = 3) ORDER BY created_at ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))[0m
+  [1m[35mRedirect Load (0.3ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 1)) ORDER BY name ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND "feedback"."state" IN ('presumed_ham', 'ham') AND ("feedback".article_id = 1) ORDER BY created_at ASC[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "contents" WHERE "contents"."type" = 'Article' AND (state <> 'draft')
+Rendered admin/content/_article_list.html.erb (132.8ms)
+Rendered admin/content/index.html.erb within layouts/administration (150.6ms)
+Completed 200 OK in 274ms (Views: 149.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/admin/content/edit/3" for 127.0.0.1 at 2015-03-15 18:22:22 -0700
+  Processing by Admin::ContentController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTrigger Load (0.1ms)[0m  [1mSELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:22.589511')[0m
+  [1m[35mBlog Load (0.1ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProfile Load (0.1ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 3 LIMIT 1
+  [1m[36mPostType Load (0.1ms)[0m  [1mSELECT "post_types".* FROM "post_types"[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT * FROM "tags" INNER JOIN "articles_tags" ON "tags".id = "articles_tags".tag_id WHERE ("articles_tags".article_id = 3 )
+  [1m[36mTextFilter Load (0.1ms)[0m  [1mSELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 1 LIMIT 1[0m
+  [1m[35mTextFilter Load (0.1ms)[0m  SELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 4 LIMIT 1
+  [1m[36mTextFilter Load (0.1ms)[0m  [1mSELECT "text_filters".* FROM "text_filters"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 4 LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 3)) ORDER BY name ASC[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name ASC
+Rendered admin/content/_categories.html.erb (11.2ms)
+  [1m[36mResource Load (0.2ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE (mime LIKE '%image%') ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "resources" WHERE ("resources".article_id = 3)
+  [1m[36mResource Load (0.1ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE (mime NOT LIKE '%image%') ORDER BY filename[0m
+  [1m[35mResource Load (0.1ms)[0m  SELECT "resources".* FROM "resources" WHERE ("resources".article_id = 3) ORDER BY created_at DESC
+Rendered admin/content/_attachment.html.erb (9.1ms)
+Rendered admin/content/_form.html.erb (75.4ms)
+Rendered admin/shared/_edit.html.erb (77.8ms)
+Rendered admin/content/new.html.erb within layouts/administration (123.8ms)
+Completed 200 OK in 276ms (Views: 124.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/content" for 127.0.0.1 at 2015-03-15 18:22:25 -0700
+  Processing by Admin::ContentController#index as HTML
+  [1m[36mTrigger Load (0.2ms)[0m  [1mSELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:26.168272')[0m
+  [1m[35mBlog Load (0.1ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProfile Load (0.1ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name ASC[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT published_at AS publication FROM contents WHERE published_at is not NULL AND type='Article'[0m
+  [1m[35mArticle Load (1.0ms)[0m  SELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND (state <> 'draft') ORDER BY published_at DESC LIMIT 10 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))
+  [1m[36mRedirect Load (0.3ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 3)) ORDER BY name ASC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND "feedback"."state" IN ('presumed_ham', 'ham') AND ("feedback".article_id = 3) ORDER BY created_at ASC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))
+  [1m[36mRedirect Load (0.3ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 1)) ORDER BY name ASC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND "feedback"."state" IN ('presumed_ham', 'ham') AND ("feedback".article_id = 1) ORDER BY created_at ASC
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "contents" WHERE "contents"."type" = 'Article' AND (state <> 'draft')[0m
+Rendered admin/content/_article_list.html.erb (133.9ms)
+Rendered admin/content/index.html.erb within layouts/administration (152.3ms)
+Completed 200 OK in 280ms (Views: 151.0ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/admin/content/edit/1" for 127.0.0.1 at 2015-03-15 18:22:27 -0700
+  Processing by Admin::ContentController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTrigger Load (0.2ms)[0m  SELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:27.941890')
+  [1m[36mBlog Load (0.2ms)[0m  [1mSELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mArticle Load (0.5ms)[0m  SELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 1 LIMIT 1[0m
+  [1m[35mPostType Load (0.1ms)[0m  SELECT "post_types".* FROM "post_types"
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT * FROM "tags" INNER JOIN "articles_tags" ON "tags".id = "articles_tags".tag_id WHERE ("articles_tags".article_id = 1 )[0m
+  [1m[35mTextFilter Load (0.1ms)[0m  SELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 1 LIMIT 1
+  [1m[36mTextFilter Load (0.1ms)[0m  [1mSELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 5 LIMIT 1[0m
+  [1m[35mTextFilter Load (0.1ms)[0m  SELECT "text_filters".* FROM "text_filters"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 5 LIMIT 1[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 1)) ORDER BY name ASC
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY name ASC[0m
+Rendered admin/content/_categories.html.erb (9.7ms)
+  [1m[35mResource Load (0.1ms)[0m  SELECT "resources".* FROM "resources" WHERE (mime LIKE '%image%') ORDER BY created_at DESC LIMIT 10 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "resources" WHERE ("resources".article_id = 1)[0m
+  [1m[35mResource Load (0.1ms)[0m  SELECT "resources".* FROM "resources" WHERE (mime NOT LIKE '%image%') ORDER BY filename
+  [1m[36mResource Load (0.1ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE ("resources".article_id = 1) ORDER BY created_at DESC[0m
+Rendered admin/content/_attachment.html.erb (8.4ms)
+Rendered admin/content/_form.html.erb (71.2ms)
+Rendered admin/shared/_edit.html.erb (73.6ms)
+Rendered admin/content/new.html.erb within layouts/administration (118.3ms)
+Completed 200 OK in 272ms (Views: 119.1ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/admin/content/merge_article/1" for 127.0.0.1 at 2015-03-15 18:22:33 -0700
+  Processing by Admin::ContentController#merge_article as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f6L5YPuE1TotBGhnYJ7waYOw0JgFkfvDBpor8MFPGeU=", "article_id"=>"1", "commit"=>"Merge", "id"=>"1"}
+  [1m[35mTrigger Load (0.1ms)[0m  SELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:34.056270')
+  [1m[36mBlog Load (0.1ms)[0m  [1mSELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mArticle Load (0.5ms)[0m  SELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND ("feedback".article_id = 1) ORDER BY created_at ASC[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT 1 FROM "contents" WHERE "contents"."type" = 'Article' AND ("contents"."guid" = '1bf3e2ca-ed7b-4562-8a4a-8ce8438822c8') AND ("contents".id <> 1) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "contents" SET "body" = 'Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+<p>
+	You know what it is!</p>
+
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+<p>
+	You know what it is!</p>
+
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!
+
+Welcome to Typo. This is your first article. Edit or delete it, then start blogging!', "updated_at" = '2015-03-16 01:22:34.193244', "settings" = '---
+password: ''''
+', "whiteboard" = NULL WHERE "contents"."type" = 'Article' AND "contents"."id" = 1[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT * FROM "tags" INNER JOIN "articles_tags" ON "tags".id = "articles_tags".tag_id WHERE ("articles_tags".article_id = 1 )
+  [1m[36mRedirect Load (0.1ms)[0m  [1mSELECT "redirects".* FROM "redirects" WHERE "redirects"."from_path" = 'jpf4ZS' LIMIT 1[0m
+  [1m[35mBlog Load (0.1ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mRedirect Load (0.2ms)[0m  [1mSELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/content
+Completed 302 Found in 207ms
+
+
+Started GET "/admin/content" for 127.0.0.1 at 2015-03-15 18:22:34 -0700
+  Processing by Admin::ContentController#index as HTML
+  [1m[35mTrigger Load (0.1ms)[0m  SELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:34.575852')
+  [1m[36mBlog Load (0.1ms)[0m  [1mSELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProfile Load (0.1ms)[0m  [1mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name ASC
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT published_at AS publication FROM contents WHERE published_at is not NULL AND type='Article'
+  [1m[36mArticle Load (0.9ms)[0m  [1mSELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND (state <> 'draft') ORDER BY published_at DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))[0m
+  [1m[35mRedirect Load (0.3ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 3)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 3)) ORDER BY name ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND "feedback"."state" IN ('presumed_ham', 'ham') AND ("feedback".article_id = 3) ORDER BY created_at ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))[0m
+  [1m[35mRedirect Load (0.4ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "redirects".* FROM "redirects" INNER JOIN "redirections" ON "redirects".id = "redirections".redirect_id WHERE (("redirections".content_id = 1)) ORDER BY redirects.id DESC LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 1)) ORDER BY name ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "feedback".* FROM "feedback" WHERE "feedback"."type" = 'Comment' AND "feedback"."state" IN ('presumed_ham', 'ham') AND ("feedback".article_id = 1) ORDER BY created_at ASC[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "contents" WHERE "contents"."type" = 'Article' AND (state <> 'draft')
+Rendered admin/content/_article_list.html.erb (131.6ms)
+Rendered admin/content/index.html.erb within layouts/administration (149.3ms)
+Completed 200 OK in 274ms (Views: 147.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/admin/content/edit/1" for 127.0.0.1 at 2015-03-15 18:22:39 -0700
+  Processing by Admin::ContentController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrigger Load (0.1ms)[0m  [1mSELECT "triggers".* FROM "triggers" WHERE (due_at <= '2015-03-16 01:22:39.898903')[0m
+  [1m[35mBlog Load (0.1ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY id LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProfile Load (0.1ms)[0m  SELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "contents".* FROM "contents" WHERE "contents"."type" = 'Article' AND "contents"."id" = 1 LIMIT 1
+  [1m[36mPostType Load (0.1ms)[0m  [1mSELECT "post_types".* FROM "post_types"[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT * FROM "tags" INNER JOIN "articles_tags" ON "tags".id = "articles_tags".tag_id WHERE ("articles_tags".article_id = 1 )
+  [1m[36mTextFilter Load (0.1ms)[0m  [1mSELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 1 LIMIT 1[0m
+  [1m[35mTextFilter Load (0.1ms)[0m  SELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 5 LIMIT 1
+  [1m[36mTextFilter Load (0.1ms)[0m  [1mSELECT "text_filters".* FROM "text_filters"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "text_filters".* FROM "text_filters" WHERE "text_filters"."id" = 5 LIMIT 1
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories".id = "categorizations".category_id WHERE (("categorizations".article_id = 1)) ORDER BY name ASC[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" ORDER BY name ASC
+Rendered admin/content/_categories.html.erb (10.2ms)
+  [1m[36mResource Load (0.2ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE (mime LIKE '%image%') ORDER BY created_at DESC LIMIT 10 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "resources" WHERE ("resources".article_id = 1)
+  [1m[36mResource Load (0.1ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE (mime NOT LIKE '%image%') ORDER BY filename[0m
+  [1m[35mResource Load (0.1ms)[0m  SELECT "resources".* FROM "resources" WHERE ("resources".article_id = 1) ORDER BY created_at DESC
+Rendered admin/content/_attachment.html.erb (45.5ms)
+Rendered admin/content/_form.html.erb (74.1ms)
+Rendered admin/shared/_edit.html.erb (76.2ms)
+Rendered admin/content/new.html.erb within layouts/administration (84.2ms)
+Completed 200 OK in 230ms (Views: 85.0ms | ActiveRecord: 3.4ms)
